@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 /**
- * main - main function:wq
+ * main - Entry
  *
- *
- * Return: always 0
+ * Return: Always 0
  */
 int main(void)
 {
-	int i;
+	char a;
 
-	for (i = 0 ; i < 10 ; i++)
-		putchar(i + '0');
-       putchar('\n');
-       return (0);
-}       
+	for (a = 0 ; a < 10 ; a++)
+		putchar((a % 10) + '0');
+	putchar('\n');
+	return (0);
+}
