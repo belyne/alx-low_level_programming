@@ -1,32 +1,32 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - main function
- * Return: Always 0
+ * main - Entry
+ *
+ * Return: always 0
  */
+
 int main(void)
 {
-	int i;
-	char j;
+	int m;
+	int n;
 
-	for (i = 0 ; i < 10 ; i++)
+	for (m = '0'; m < '9'; m++)
 	{
-		for (j  = 1 ; j < 10 ; j++)
-		{
-		         if (i < j && i != j)
-			 {
-				 putchar(i + '0');
-				 putchar(j + '0');
-				 if (i + j != 17)
-				 {
-					 putchar(',');       		
-		                         putchar(' ');
-				 }
-			 }
-		}
+	for (n = m + 1; n <= '9'; n++)
+	{
+	if (n != m)
+	{
+	putchar(m);
+	putchar(n);
+	if (m == '8' && n == '9')
+	continue;
+	putchar(',');
+	putchar(' ');
+	}
+	}
 	}
 	putchar('\n');
 	return (0);
 }
-
-
