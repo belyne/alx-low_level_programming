@@ -1,19 +1,19 @@
 #include <stdio.h>
-
 /**
- * main - main function 
+ * main - Entry
  *
  * Return: Always 0
  */
+
 int main(void)
 {
-	int i;
-	char j;
+	int d;
+	char low;
 
-	for (i = 0 ; i < 10 ; i++)
-		putchar(i + '0');
-	for (j = 'a' ; j <= 'f' ; j++)
-	       putchar(j);
+	for (d = '0'; d <= '9'; d++)
+	putchar(d);
+	for (low = 'a'; low <= 'f'; low++)
+	putchar(low);
 	putchar('\n');
-        return (0);
-}	
+	return (0);
+}
