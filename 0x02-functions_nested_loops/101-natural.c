@@ -6,16 +6,15 @@
 
 int main(void)
 {
-	int i;
+	int i, sum = 0;
 
-	sum = 0;
-
-	for (i = 0; i < 10; i++)
+	while (i < 1024)
 	{
 	if ((i % 3 == 0) || (i % 5 == 0))
 	{
-	sum = sum + i;
+	sum += i;
 	}
+	i++;
 	}
 	printtf("%d\n", sum);
 	return (0);
