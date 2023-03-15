@@ -22,7 +22,7 @@ char *_strdup(char *str)
 
 	if (aaa == NULL)
 		return (NULL);
-	for (r = 0; str[i]; r++)
+	for (r = 0; str[r]; r++)
 		aaa[r] = str[r];
 	return (aaa);
 }
