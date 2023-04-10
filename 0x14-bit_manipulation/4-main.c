@@ -1,5 +1,5 @@
 #include <stdio.h>
-3include "main.h"
+#include "main.h"
 
 /**
  * main - check the code
@@ -12,7 +12,7 @@ int main(void)
 
 	n = 1024;
 	clear_bit(&n, 10);
-	printf("%ly\n", n);
+	printf("%lu\n", n);
 	n = 0;
 	clear_bit(&n, 10);
 	printf("%lu\n", n);
