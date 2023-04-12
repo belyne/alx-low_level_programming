@@ -10,22 +10,23 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, num, length = 0;
+	int fpi, num, length = 0;
 
 	if (filename == NULL)
 		return (-1);
+	if (text_content != NULL)
 	{
 		for (length = 0; text_content[length];)
 			length++;
 	}
 
-	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-	num = write(fd, text_content, length);
+	fpi = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	num = write(fpi, text_content, length);
 
-	if (fd == -1 || num == -1)
+	if (fpi == -1 || num == -1)
 		return (-1);
 
-	close(fd);
+	close(fpi);
 
 	return (1);
 }
