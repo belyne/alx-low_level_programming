@@ -59,7 +59,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int old_copy, new_copy, num, fnc;
+	int from, to, num, fnc;
 	char *buffer;
 
 	if (argc != 3)
@@ -68,33 +68,33 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	buffer = create_buffer(argv[2]);
-	old_copy = open(argv[1], O_RDONLY);
-	fnc = read(old_copy, buffer, 1024);
-	new_copy = open(argv[2], O_CREAT | O_TRUNC, 0664);
+	from = open(argv[1], O_RDONLY);
+	fnc = read(from, buffer, 1024);
+	to = open(argv[2], O_CREAT | O_TRUNC, 0664);
 
 	do {
-		if (old_copy == -1 || num == -1)
+		if (from == -1 || num == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			free(buffer);
 			exit(98);
 		}
 
-		fnc = write(new_copy, buffer, num);
-		if (new_copy == -1 || fnc == -1)
+		fnc = write(from, buffer, num);
+		if (to == -1 || fnc == -1)
 		{
 			dprintf(STDERR_FILENO, "Erro: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
 
-		num = read(old_copy, buffer, 1024);
-		new_copy = open(argv[2], O_WRONLY | O_APPEND);
+		num = read(from, buffer, 1024);
+		to = open(argv[2], O_WRONLY | O_APPEND);
 	} while (fnc > 0);
 
 	free(buffer);
-	close_file(old_copy);
-	close_file(new_copy);
+	close_file(from);
+	close_file(to);
 
 	return (0);
 }
