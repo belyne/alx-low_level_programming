@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# Compile all .c files in the current directory into position-independent object files
-gcc -c -Wall -Werror -fpic *.c
-
-# Create the dynamic library liball.so from the object files
+# Compile all .c files into position-independent code and create the shared library
+gcc -Wall -pedantic -Werror -Wextra -fPIC -c *.c
 gcc -shared -o liball.so *.o
 
-#Cleanup: remove the object files
+# Clean up object files
 rm *.o
