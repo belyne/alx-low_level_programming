@@ -7,15 +7,21 @@ OBJ = $(SRC:.c=.o)
 
 .PHONY: all clean oclean fclean re
 
-all: m.h $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ)
 
 clean:
-	$(RM) *~ $(NAME)
+	$(RM) *~ $(OBJ)
 
 oclean:
 	$(RM) $(OBJ)
 
 fclean: oclean clean
+	$(RM) $(NAME)
 
 re: fclean all
+
+%.o: %.c m.h
+	$(CC) $(CFLAGS) -c $< -o $@
