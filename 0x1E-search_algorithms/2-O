@@ -1,1 +1,1 @@
-The worst-case time complexity of a linear search in an array of size n is O(n). This means that in the worst-case scenario, the time it takes to perform a linear search is directly proportional to the size of the array. As the size of the array increases, the time it takes to perform the search also increases linearly.
+O(n)
